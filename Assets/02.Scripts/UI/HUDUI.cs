@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class HUDUI : MonoBehaviour
 {
@@ -12,33 +11,34 @@ public class HUDUI : MonoBehaviour
     RectTransform rect;
     Vector2 originalPos;
     Vector2 originalSize;
+    Vector2 originalMin;
+    Vector2 originalMax;
 
     private void Start()
     {
         rect = GetComponent<RectTransform>();
         originalPos = rect.anchoredPosition; // 기본 위치
         originalSize = rect.localScale; // 기본 크기
-    }
-
-    void Update()
-    {
-        if (GameManager.CurrentState == GameManager.GameState.GameOver) // 게임 오버 시
-        {
-            UIManager.ChangeUI(UIManager.UIState.GameOver);
-            moveToCenter(); // 중앙으로 옮김
-        }
+        originalMax = rect.anchorMax;
+        originalMin = rect.anchorMin;
     }
 
     public void moveToCenter()
     {
+        rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.anchorMin = new Vector2(0.5f, 0.5f);
+
         rect.anchoredPosition = Vector2.zero; // 중앙
-        rect.localScale = Vector2.one * 1.5f; // 1.5배
+
         scoreText.alignment = TextAlignmentOptions.Center; // 글 꼴을 중앙으로
         timeText.alignment = TextAlignmentOptions.Center;
     }
 
     public void Init()
     {
+        rect.anchorMin = originalMin;
+        rect.anchorMax = originalMax;
+
         // 기본으로 돌아옴
         rect.anchoredPosition = originalPos;
         rect.localScale = originalSize;

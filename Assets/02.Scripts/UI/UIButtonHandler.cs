@@ -112,6 +112,11 @@ public class UIButtonHandler : MonoBehaviour
         AudioManager.Instance.PlaySFX(AudioManager.Instance.click);
     }
 
+    public void QuitClicked()
+    {
+        Application.Quit();
+    }
+
     public void CharacterClicked() // 캐릭터창
     {
         UIManager.ChangeUI(UIManager.UIState.Character);

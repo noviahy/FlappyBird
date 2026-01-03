@@ -192,7 +192,7 @@ MonoBehaviour:
   downHead: {fileID: 1449351565831146081}
   minSpeed: 5
   maxSpeed: 7
-  difficultyIncreaseRate: 0.01
+  difficultyIncreaseRate: 0.04
   coinManager: {fileID: 0}
   coinSqawnChange: 0.1
   player: {fileID: 1010964433795964876, guid: 2700d3b8ee75eae4391d6e8c8680d72b, type: 3}

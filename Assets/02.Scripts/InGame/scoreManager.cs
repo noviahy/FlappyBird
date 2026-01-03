@@ -5,6 +5,7 @@ public class scoreManager : MonoBehaviour
     public GameManager gameManager;
     public UIManager uiManager;
     public UIScore uiScore;
+    public HUDUI HDUI;
 
     float timer = 0f;
     int score = 0;
@@ -19,9 +20,10 @@ public class scoreManager : MonoBehaviour
 
         else if (gameManager.CurrentState == GameManager.GameState.GameOver && !scorePrinted) // socrePrinted로 한번만 출력
         {
-            if (BestScore < score) 
+            if (BestScore <= score) 
                 BestScore = score;
             uiScore.outputBestScore();
+            HDUI.moveToCenter();
             printScore();
         }
     }

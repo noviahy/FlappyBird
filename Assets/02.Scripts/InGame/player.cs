@@ -137,6 +137,7 @@ public class player : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(AudioManager.Instance.hit);
             gameManager.ChangeState(GameManager.GameState.GameOver); // 상태: GameOver
+            UIManager.ChangeUI(UIManager.UIState.GameOver);
             rb.gravityScale = 0;
             rb.linearVelocity = Vector2.zero; // 플레이어의 현재 이동 속도를 전부 0으로 만들어서 즉시 멈추게함
         }

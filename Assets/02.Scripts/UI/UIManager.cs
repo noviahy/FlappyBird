@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button Setting;
     [SerializeField] TMP_Text CountText;
     public GameManager gameManager;
+    public HUDUI HUDUI;
     public UIState CurrentState { get; private set; }  // 현재 UI 상태
     public UIState PreviousState { get; private set; } // 이전 UI 상태
 
@@ -88,6 +89,7 @@ public class UIManager : MonoBehaviour
                 break;
 
             case UIState.GameOver:
+                Debug.Log("GameOver");
                 Show(InGameUI);
                 hidePauseBT();
                 Show(endUI);
